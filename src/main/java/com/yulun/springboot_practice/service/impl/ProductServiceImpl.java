@@ -2,6 +2,7 @@ package com.yulun.springboot_practice.service.impl;
 
 import com.yulun.springboot_practice.dao.ProductDao;
 import com.yulun.springboot_practice.dao.impl.ProductDaoImpl;
+import com.yulun.springboot_practice.dto.ProductRequest;
 import com.yulun.springboot_practice.model.Product;
 import com.yulun.springboot_practice.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,5 +17,10 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product getProductById(Integer productId) {
         return productDao.getProductById(productId);
+    }
+
+    @Override
+    public Integer createProduct(ProductRequest productRequest) {
+        return productDao.createProduct(productRequest);
     }
 }
