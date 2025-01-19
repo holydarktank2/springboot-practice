@@ -1,5 +1,6 @@
 package com.yulun.springboot_practice.service.impl;
 
+import com.yulun.springboot_practice.constant.ProductCategory;
 import com.yulun.springboot_practice.dao.ProductDao;
 import com.yulun.springboot_practice.dao.impl.ProductDaoImpl;
 import com.yulun.springboot_practice.dto.ProductRequest;
@@ -17,8 +18,8 @@ public class ProductServiceImpl implements ProductService {
     private ProductDao productDao;
 
     @Override
-    public List<Product> getProducts() {
-        return productDao.getProducts();
+    public List<Product> getProducts(ProductCategory category, String search) {
+        return productDao.getProducts(category, search);
     }
 
     @Override

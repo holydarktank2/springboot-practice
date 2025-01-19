@@ -1,5 +1,6 @@
 package com.yulun.springboot_practice.controller;
 
+import com.yulun.springboot_practice.constant.ProductCategory;
 import com.yulun.springboot_practice.dto.ProductRequest;
 import com.yulun.springboot_practice.model.Product;
 import com.yulun.springboot_practice.service.ProductService;
@@ -17,8 +18,11 @@ public class ProductController {
     @Autowired
     private ProductService productService;
     @GetMapping("/products")
-    public ResponseEntity<List<Product>> getProducts(){
-        List<Product> productList = productService.getProducts();
+    public ResponseEntity<List<Product>> getProducts(
+            @RequestParam(required = false) ProductCategory category,
+            @RequestParam(required = false) String search
+            ){
+        List<Product> productList = productService.getProducts(category, search);
 
         return ResponseEntity.status(HttpStatus.OK).body(productList);
     }
