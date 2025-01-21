@@ -5,6 +5,7 @@ import com.yulun.springboot_practice.model.User;
 
 public interface UserService {
 
-    Integer register(UserRegisterRequest userRegisterRequest);
     User getUserById(Integer userId);
+    Integer register(UserRegisterRequest userRegisterRequest);
+
 }
