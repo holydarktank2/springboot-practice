@@ -1,0 +1,22 @@
+package com.yulun.springboot_practice.rowmapper;
+
+import com.yulun.springboot_practice.model.Order;
+import org.springframework.jdbc.core.RowMapper;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class OrderRowMapper implements RowMapper {
+    @Override
+    public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+        Order order = new Order();
+
+        order.setOrderId(rs.getInt("order_id"));
+        order.setUserId(rs.getInt("user_id"));
+        order.setTotalAmount(rs.getInt("total_amount"));
+        order.setCreatedDate(rs.getTimestamp("created_date"));
+        order.setCreatedDate(rs.getTimestamp("last_modified_date"));
+
+        return order;
+    }
+}

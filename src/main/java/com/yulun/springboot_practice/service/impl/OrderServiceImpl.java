@@ -4,6 +4,7 @@ import com.yulun.springboot_practice.dao.OrderDao;
 import com.yulun.springboot_practice.dao.ProductDao;
 import com.yulun.springboot_practice.dto.BuyItem;
 import com.yulun.springboot_practice.dto.CreateOrderRequest;
+import com.yulun.springboot_practice.model.Order;
 import com.yulun.springboot_practice.model.OrderItem;
 import com.yulun.springboot_practice.model.Product;
 import com.yulun.springboot_practice.service.OrderService;
@@ -22,6 +23,17 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private ProductDao productDao;
+
+    @Override
+    public Order getOrderById(Integer orderId) {
+        Order order = orderDao.getOrderById(orderId);
+
+        List<OrderItem> orderItemList = orderDao.getOrderItemsByOrderId(orderId);
+
+        order.setOrderItemList(orderItemList);
+
+        return order;
+    }
 
     @Transactional
     @Override
@@ -49,4 +61,5 @@ public class OrderServiceImpl implements OrderService {
 
         return orderId;
     }
+
 }

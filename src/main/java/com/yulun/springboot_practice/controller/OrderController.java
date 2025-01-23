@@ -1,6 +1,7 @@
 package com.yulun.springboot_practice.controller;
 
 import com.yulun.springboot_practice.dto.CreateOrderRequest;
+import com.yulun.springboot_practice.model.Order;
 import com.yulun.springboot_practice.service.OrderService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,8 @@ public class OrderController {
 
         Integer orderId = orderService.createOrder(userId, createOrderRequest);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(orderId);
+        Order order = orderService.getOrderById(orderId);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(order);
     }
 }
