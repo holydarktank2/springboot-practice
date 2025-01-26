@@ -24,17 +24,6 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @PostMapping("/users/{userId}/orders")
-    public ResponseEntity<Order> createOrder(@PathVariable Integer userId,
-                                         @RequestBody @Valid CreateOrderRequest createOrderRequest){
-
-        Integer orderId = orderService.createOrder(userId, createOrderRequest);
-
-        Order order = orderService.getOrderById(orderId);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(order);
-    }
-
     @GetMapping("/users/{userId}/orders")
     public ResponseEntity<?> getOrders(@PathVariable Integer userId,
                                        //分頁
@@ -58,5 +47,16 @@ public class OrderController {
         page.setResult(orderList);
 
         return ResponseEntity.status(HttpStatus.OK).body(page);
+    }
+
+    @PostMapping("/users/{userId}/orders")
+    public ResponseEntity<Order> createOrder(@PathVariable Integer userId,
+                                         @RequestBody @Valid CreateOrderRequest createOrderRequest){
+
+        Integer orderId = orderService.createOrder(userId, createOrderRequest);
+
+        Order order = orderService.getOrderById(orderId);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(order);
     }
 }
