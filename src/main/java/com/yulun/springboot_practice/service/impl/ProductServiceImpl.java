@@ -1,9 +1,7 @@
 package com.yulun.springboot_practice.service.impl;
 
-import com.yulun.springboot_practice.constant.ProductCategory;
 import com.yulun.springboot_practice.dao.ProductDao;
-import com.yulun.springboot_practice.dao.ProductQueryParams;
-import com.yulun.springboot_practice.dao.impl.ProductDaoImpl;
+import com.yulun.springboot_practice.dto.ProductQueryParams;
 import com.yulun.springboot_practice.dto.ProductRequest;
 import com.yulun.springboot_practice.model.Product;
 import com.yulun.springboot_practice.service.ProductService;

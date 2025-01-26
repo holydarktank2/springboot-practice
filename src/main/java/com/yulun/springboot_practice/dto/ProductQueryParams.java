@@ -1,4 +1,4 @@
-package com.yulun.springboot_practice.dao;
+package com.yulun.springboot_practice.dto;
 
 import com.yulun.springboot_practice.constant.ProductCategory;
 

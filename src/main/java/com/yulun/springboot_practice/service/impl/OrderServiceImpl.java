@@ -1,6 +1,7 @@
 package com.yulun.springboot_practice.service.impl;
 
 import com.yulun.springboot_practice.dao.OrderDao;
+import com.yulun.springboot_practice.dto.OrderQueryParams;
 import com.yulun.springboot_practice.dao.ProductDao;
 import com.yulun.springboot_practice.dao.UserDao;
 import com.yulun.springboot_practice.dto.BuyItem;
@@ -31,6 +32,23 @@ public class OrderServiceImpl implements OrderService {
     private ProductDao productDao;
     @Autowired
     private UserDao userDao;
+
+    @Override
+    public Integer countOrder(OrderQueryParams orderQueryParams) {
+        return orderDao.countOrder(orderQueryParams);
+    }
+
+    @Override
+    public List<Order> getOrders(OrderQueryParams orderQueryParams) {
+        List<Order> orderList = orderDao.getOrders(orderQueryParams);
+
+        for (Order order : orderList){
+            List<OrderItem> orderItemList = orderDao.getOrderItemsByOrderId(order.getOrderId());
+            order.setOrderItemList(orderItemList);
+        }
+
+        return orderList;
+    }
 
     @Override
     public Order getOrderById(Integer orderId) {

@@ -1,13 +1,11 @@
 package com.yulun.springboot_practice.dao.impl;
 
-import com.yulun.springboot_practice.constant.ProductCategory;
 import com.yulun.springboot_practice.dao.ProductDao;
-import com.yulun.springboot_practice.dao.ProductQueryParams;
+import com.yulun.springboot_practice.dto.ProductQueryParams;
 import com.yulun.springboot_practice.dto.ProductRequest;
 import com.yulun.springboot_practice.model.Product;
 import com.yulun.springboot_practice.rowmapper.ProductRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
