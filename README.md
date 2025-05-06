@@ -5,7 +5,7 @@ Spring boot 基礎功能練習。
 
 ## 使用工具
 
-Spring MVC、Spring JDBC、MySQL
+Spring Boot、Spring JDBC、MySQL
 
 ## 功能預覽
 帳號管理-登入<br>
